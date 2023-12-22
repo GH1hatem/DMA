@@ -5,7 +5,7 @@
 /* Private typedef -----------------------------------------------------------*/
 char Receive_Buffer [200]; 
 char Compare_Buffer[20]="ABCDEFGHIJ0123456789";
-char Transmit_Buffer[]="STILL NO MESSAGE";
+char Transmit_Buffer[20];
 
 // we gonna store the line in this array 
 char* ReceivedLignes[8]; 
@@ -85,7 +85,7 @@ void Config_USART2_TX_WITH_DMA(void){
     DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&(USART2->DR);
     DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)Transmit_Buffer; // Replace txBuffer with your actual buffer
     DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralDST;
-    DMA_InitStructure.DMA_BufferSize = sizeof(Transmit_Buffer); // Set the buffer size
+    DMA_InitStructure.DMA_BufferSize = 20; // Set the buffer size
     DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
     DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
     DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;

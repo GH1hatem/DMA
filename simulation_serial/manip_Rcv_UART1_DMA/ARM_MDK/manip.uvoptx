@@ -157,25 +157,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>149</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134220050</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\stm32f10x_it.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\manip\../stm32f10x_it.c\149</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
           <LineNumber>152</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134220078</Address>
+          <Address>134220074</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
