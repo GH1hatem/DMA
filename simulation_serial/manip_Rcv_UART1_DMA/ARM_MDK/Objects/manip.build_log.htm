@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.33.0.0
 Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Emir DAMERGI, INSAT, LIC=----
+License Information: hatem hatem.gharsallah@insat.ucar.tn, aa, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.33.0.0
@@ -17,33 +17,33 @@ Library Manager: ArmAr.exe V5.06 update 7 (build 960)
 Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
 CPU DLL:         SARMCM3.DLL V5.33.0.0
 Dialog DLL:      DARMSTM.DLL V1.68.0.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
 Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
-C:\Users\Emir\Desktop\STM32_NucleoF103_StdLib\manip_6-x_Uart1RxDMA_Uart2TxINT\ARM_MDK\manip.uvprojx
+C:\Users\hatem\OneDrive\Desktop\simulation_serial\simulation_serial\manip_Rcv_UART1_DMA\ARM_MDK\manip.uvprojx
 Project File Date:  11/29/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-compiling misc.c...
 compiling main.c...
-..\main.c(124): warning:  #1-D: last line of file ends without a newline
+..\main.c(90): error:  #29: expected an expression
+  ,,,
+..\main.c(137): warning:  #1-D: last line of file ends without a newline
   	
-..\main.c: 1 warning, 0 errors
-compiling stm32f10x_exti.c...
-compiling stm32f10x_it.c...
-compiling stm32f10x_rcc.c...
-compiling stm32f10x_gpio.c...
-compiling stm32f10x_usart.c...
+..\main.c: 1 warning, 1 error
 assembling startup_stm32f10x_md.s...
 compiling core_cm3.c...
-compiling system_stm32f10x.c...
 compiling stm32f10x_dma.c...
-linking...
-Program Size: Code=2248 RO-data=268 RW-data=60 ZI-data=1716  
-".\Objects\manip.axf" - 0 Error(s), 1 Warning(s).
+compiling stm32f10x_it.c...
+compiling misc.c...
+compiling system_stm32f10x.c...
+compiling stm32f10x_exti.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+".\Objects\manip.axf" - 1 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -53,10 +53,11 @@ Package Vendor: Keil
                 STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  C:\Users\Emir\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
+  C:\Users\hatem\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Target not created.
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

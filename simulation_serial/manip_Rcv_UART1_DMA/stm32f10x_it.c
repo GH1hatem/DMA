@@ -157,7 +157,6 @@ void SysTick_Handler(void)
 void EXTI15_10_IRQHandler(void)
 {
     
-
 	//if (EXTI_GetFlagStatus(EXTI_Line13)==RESET)
 	//{
  // allumer les eux leds
@@ -184,9 +183,10 @@ void EXTI15_10_IRQHandler(void)
 void DMA1_Channel5_IRQHandler(void)
 {
   /* Test on DMAx Channely Transfer Half interrupt */
-  if(DMA_GetITStatus(DMA1_IT_TC5))
+  if(DMA_GetITStatus(DMA1_IT_TC5)){
 
-    DMA_ClearITPendingBit(DMA1_IT_TC5);  
+    DMA_ClearITPendingBit(DMA1_IT_TC5); 
+	} 
 	
 }
 

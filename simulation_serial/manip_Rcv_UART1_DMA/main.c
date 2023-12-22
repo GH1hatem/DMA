@@ -2,12 +2,25 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
-
+#include<time.h>
 /* Private typedef -----------------------------------------------------------*/
 
 char Compare_Buffer[20]="ABCDEFGHIJ0123456789";
-char Receive_Buffer[20]; 
+char Receive_Buffer [200]; 
 char Transmit_Buffer[]="PWDISOK";
+struct LigneGPS {
+	int year ; 
+	int month ; 
+	int day; 
+	int hour ; 
+	int minute ; 
+	int second ; 
+	double altitude ; 
+	double longitude ;
+	int nbsatellites ; 
+};
+// we gonna store the lines in this array 
+struct LigneGPS ReceivedLignes[20]; 
 
 // Structures
 GPIO_InitTypeDef GPIO_InitStructure;
@@ -19,7 +32,7 @@ DMA_InitTypeDef DMA_InitStructure;
 void Delay(vu32 nCount);
 
 void Config_USART1_RX_WITH_DMA (void);
-
+void Config_USART2_TX_WITH_DMA (void);
 int main(void)
 {
 /* ================  Configure the Periph Clocks ===================== */
@@ -40,7 +53,7 @@ int main(void)
 /*----------------------------------------------------------*/
 // Configure USART1 to Receieve and Store Data Using DMA Channel
 Config_USART1_RX_WITH_DMA();
-
+Config_USART2_TX_WITH_DMA();
 
 
  while(1)
@@ -54,7 +67,28 @@ Config_USART1_RX_WITH_DMA();
 void Delay(vu32 nCount)
 {  for(; nCount != 0; nCount--);}
 
+void Config_USART2_TX_WITH_DMA(void){
+	/* Enable USART2 clocks */
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2 , ENABLE);
+  
+	/* Configure USART2 Tx as input floating */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  GPIO_Init(GPIOA, &GPIO_InitStructure);
 
+
+		/******************** **************************/
+	/******************** **************************/
+	/******************** **************************/
+	/******************** **************************/
+	/******************** **************************/
+	/******************** **************************/
+	/******************** **************************/
+	/******************** **************************/
+
+	
+	
+}
 
 void Config_USART1_RX_WITH_DMA (void)
 {
@@ -74,7 +108,7 @@ void Config_USART1_RX_WITH_DMA (void)
 /* ====================  USART1 configuration ======================*/
     /*  - BaudRate = 9600 baud - Word Length = 8 Bits- One Stop Bit - No parity
         - Receive enabled   */
-	
+
   USART_InitStructure.USART_BaudRate = 9600;
   USART_InitStructure.USART_WordLength = USART_WordLength_8b;
   USART_InitStructure.USART_StopBits = USART_StopBits_1;
@@ -109,7 +143,7 @@ void Config_USART1_RX_WITH_DMA (void)
 		DMA_Init(DMA1_Channel5, &DMA_InitStructure);
 
 //  /* Enable DMAx Channely Transfer Complete/ Half Transfer interrupts */
-		DMA_ITConfig(DMA1_Channel5, DMA_IT_TC, ENABLE);
+		DMA_ITConfig(DMA1_Channel5, DMA_IT_TC , ENABLE);
 
 			/* Enable DMA1 Channelx transfer */
 			DMA_Cmd(DMA1_Channel5, ENABLE);
