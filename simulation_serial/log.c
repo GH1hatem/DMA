@@ -6,39 +6,44 @@
 #include <sys/time.h>
 
 #include <stdbool.h>
-// bool is_valid_nmea_sentence(const char *nmea_sentence) {
-//     if (nmea_sentence[0] != '$') {
-//         return false; // NMEA sentences start with '$'
-//     }
 
-//     const char checksum_str = strchr(nmea_sentence, '');
-//     if (!checksum_str) {
-//         return false; // No checksum delimiter found
-//     }
-
-//     int checksum = 0;
-//     for (const char *p = nmea_sentence + 1; p < checksum_str; ++p) {
-//         checksum ^= *p;
-//     }
-
-//     int provided_checksum;
-//     sscanf(checksum_str , "%X", &provided_checksum);
-
-//     return checksum == provided_checksum;
-// }
 int main()
 {
-    char nmea_sentence[] = "$GPRMC,210230,A,3855.4487,N,09446.0071,W,0.0,076.2,130495,003.8,E*69\n\r";
-    char* token = strtok(nmea_sentence, ",");
-    char* arr[14];
-    int i = 0;
-    while (token != NULL) {
-        arr[i++] = token;
-        token = strtok(NULL, ",");
-    }
+    char nmea_sentence[] = "$GPGGA,123519,4807.038,N,01131.000,E,1,08,545.4,$GPRMC,220516\n\r$GPRMC,123519,4807.038,N,01131.000,E,1,08,545.4,$GPRMC,220516";
+    char* result[7];
+    // can u redo the code to get the result in an array of strings
+    // divide the string into tokens and store them based on $ 
+    // then divide the tokens into tokens based on , and store them in an array of strings
+    // then use the array of strings to get the values
+    
 
-    int number;
-    sscanf(arr[11], "%*[^0123456789]%d", &number) ; 
-    printf("%d" , number) ;
+
+
+
+
+
+
+
+
+
+    char* token = strtok(nmea_sentence, "$");
+    while (token!=NULL){
+         token = strtok(NULL, ",");
+        if (token == "GPGGA"){
+            char* arr[14];
+            int i = 0;
+            while (token != NULL) {
+                arr[i++] = token;
+                token = strtok(NULL, ",");
+            }
+            printf("hdhdh");
+        }
+        if (token == "$GPRMC"){
+            printf("hey");
+        }
+    }
+    // int number;
+    // sscanf(arr[11], "%*[^0123456789]%d", &number) ; 
+    // printf("%d" , number) ;
     return 0;
 }
